@@ -1,5 +1,5 @@
 <?php 	
-    include_once("bdd.php"); 
+    include_once("getbdd.php"); 
 
 	if(isset($_POST["password"]) && isset($_POST["email"]))  {
 		

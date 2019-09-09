@@ -7,6 +7,7 @@
 <body>
 
 <h1>PROJETS HUB</h1>
+<p><a href="addproject.php">Créer projets<a></p>
 <p>ici: mes projets</p>
 <?php
     include("../getbdd.php");

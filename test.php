@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Projets pro</title>
+<title></title>
 </head>
 
 <body>

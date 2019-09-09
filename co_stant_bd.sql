@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+<<<<<<< HEAD
+-- Généré le :  lun. 09 sep. 2019 à 13:19
+=======
 -- Généré le :  lun. 09 sep. 2019 à 13:40
+>>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -138,7 +142,13 @@ CREATE TABLE IF NOT EXISTS `projets` (
 
 INSERT INTO `projets` (`id_admin`, `id_membres`, `titre`, `id_projet`, `texte`) VALUES
 (1, 1, 'projet arnaud', 1, 'comment vaincre Arnaud au babyfoot'),
+<<<<<<< HEAD
+(1, 1, 'projet arnaud', 2, 'comment vaincre Arnaud au babyfoot'),
+(2, 2, 'projet mathieu', 3, 'comment plaquer mathieu au football américain'),
+(2, 2, 'projet mathieu', 4, 'comment plaquer mathieu au football américain');
+=======
 (2, 2, 'projet mathieu', 3, 'comment plaquer mathieu au football américain');
+>>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
 
 -- --------------------------------------------------------
 
@@ -185,8 +195,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `mdp`, `nom`, `prenom`, `mail`) VALUES
 (2, '123456', 'jean', 'delafontaine', 'jean.delafontaine@gmail.com'),
+<<<<<<< HEAD
+(3, '1234567', 'Jean-Jacques', 'rousseau', 'Jean-Jacques.rousseau@gmail.com');
+=======
 (3, '1234567', 'Jean-Jacques', 'rousseau', 'Jean-Jacques.rousseau@gmail.com'),
 (1, '123', 'François-Marie', ' Arouet', 'François-Marie.Arouet@gmail.com');
+>>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -14,6 +14,5 @@
         $bdd = null;
         die('Erreur : ' . $e->getMessage());
     }
-
     return $bdd;
 ?>

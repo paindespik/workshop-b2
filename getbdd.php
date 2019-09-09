@@ -2,7 +2,7 @@
     $host = "localhost";
     $port = "3306";
     $dbName = "co_stand_bd";
-    $login = "root";
+    $login = "paindespik";
     $password = "";
 
     try

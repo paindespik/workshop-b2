@@ -3,7 +3,7 @@
     $port = "3306";
     $dbName = "co_stand_bd";
     $login = "paindespik";
-    $password = "";
+    $password = "asdf1";
 
     try
     {

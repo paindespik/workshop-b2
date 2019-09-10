@@ -16,8 +16,11 @@
     $projet = substr($projet,36);    // retourne "ef"
     $projet = str_replace('%20',' ',$projet);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ce524d37bc31b8dd106b3a79be6bfa4e8981b8e7
     echo($projet);
 ?>
 </h1>

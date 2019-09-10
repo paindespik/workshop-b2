@@ -13,6 +13,7 @@
   <input type ="submit">
 </form>
 
+
 <?php
 include ("../getbdd.php");
 if (isset ($_GET['nom'])){

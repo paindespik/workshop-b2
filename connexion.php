@@ -56,7 +56,7 @@ else
 	    pendant votre identification.<br /> Le mot de passe ou le nom ou le prénom
             entré n\'est pas correcte.</p><p>Cliquez <a href="connexion.php">ici</a> 
 	    pour revenir à la page précédente
-	    <br /><br />Cliquez <a href="../accueil.php">ici</a> 
+	    <br /><br />Cliquez <a href="../index.php">ici</a> 
 	    pour revenir à la page d accueil</p>';
 	}
     $query->CloseCursor();

@@ -11,10 +11,8 @@
 <p>ici: mes projets</p>
 <?php
     include("../getbdd.php");
-$_POST['id']=1;
-$id = $_POST['id'];
 // On récupère le titre des projets dont l'users est membre 
-$reponse = $bdd->query('SELECT titre FROM projets WHERE id_membres ='.$id.'');
+$reponse = $bdd->query('SELECT titre FROM projets WHERE id_membres ='.$_SESSION['id'].'');
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {

@@ -48,7 +48,7 @@ else
 	    $_SESSION['id'] = $data['id_user'];
 	    $message = '<p>Bienvenue '.$data['nom'].', 
 			vous êtes maintenant connecté!</p>
-			<p>Cliquez <a href="../accueil.php">ici</a> 
+			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
 			var_dump($_SESSION['nom']);
 	}

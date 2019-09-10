@@ -43,11 +43,12 @@ else
 	
 	if ($data['mdp'] == md5($_POST['password']) || $data['prenom'] == $_POST['prenom'])
 	{
-	    $_SESSION['nom'] = $data['nom'];
+		$_SESSION['nom'] = $data['nom'];
+		$_SESSION['prenom'] = $data['prenom'];
 	    $_SESSION['id'] = $data['id_user'];
 	    $message = '<p>Bienvenue '.$data['nom'].', 
 			vous êtes maintenant connecté!</p>
-			<p>Cliquez <a href="../accueil.php">ici</a> 
+			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
 	}
 	else 
@@ -56,7 +57,7 @@ else
 	    pendant votre identification.<br /> Le mot de passe ou le nom ou le prénom
             entré n\'est pas correcte.</p><p>Cliquez <a href="connexion.php">ici</a> 
 	    pour revenir à la page précédente
-	    <br /><br />Cliquez <a href="../index.php">ici</a> 
+		<br /><br />Cliquez <a href="drive/drive.php">ici</a> 
 	    pour revenir à la page d accueil</p>';
 	}
     $query->CloseCursor();

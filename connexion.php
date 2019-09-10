@@ -50,7 +50,6 @@ else
 			vous êtes maintenant connecté!</p>
 			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
-			var_dump($_SESSION['nom']);
 	}
 	else 
 	{

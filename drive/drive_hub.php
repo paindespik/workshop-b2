@@ -10,6 +10,7 @@
 <?php
     include_once("../header.php");
     include_once("../menu.php");
+
 ?>
 <a href="../index.php">Retour à l'accueil </a>
 <h1>PROJETS HUB</h1>
@@ -18,11 +19,11 @@
 <?php
 $_SESSION['id']=2;
 // On récupère le titre des projets dont l'users est membre 
-$reponse = $bdd->query('SELECT titre FROM projets WHERE id_membres ='.$_SESSION['id'].'');
+$reponse = $bdd->query('SELECT titre FROM projets, membres_projets WHERE id_membre ='.$id.'');
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {
-    ?><a href="drive.php?projet=<?php echo($donnees['titre']) ?> "><?php echo $donnees['titre'];
+    ?><a href="drive.php?projet=<?php echo($donnees['titre']) ?> "><?php echo($donnees['titre']. '<br>');
 }
 echo($donnees['titre']); 
 

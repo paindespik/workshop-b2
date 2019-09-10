@@ -11,7 +11,7 @@
     include_once("../menu.php");
 
 ?>
-
+<a href="../index.php">Retour à l'accueil </a>
 <h1>PROJETS HUB</h1>
 <p><a href="addproject.php">Créer projets<a></p>
 <p>ici: mes projets</p>

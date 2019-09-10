@@ -3,7 +3,7 @@
 
 session_start();
 $titre="Connexion";
-include_once("getbdd.php");
+include_once("header.php");
 if ($bdd){
 if (!isset($_POST['nom'])) 
 {
@@ -30,7 +30,7 @@ else
     {
         $message = '<p>une erreur s\'est produite pendant votre identification.
 	Vous devez remplir tous les champs</p>
-	<p>Cliquez <a href="connexion.php">ici</a> pour revenir</p>';
+	<p>Cliquez <a href="index.php">ici</a> pour revenir</p>';
     }
     else 
     {
@@ -41,7 +41,7 @@ else
 		$data=$query->fetch();
 
 	
-	if ($data['mdp'] == md5($_POST['password']) || $data['prenom'] == $_POST['prenom'])
+	if ($data['mdp'] == md5($_POST['password']) && $data['prenom'] == $_POST['prenom'])
 	{
 		$_SESSION['nom'] = $data['nom'];
 		$_SESSION['prenom'] = $data['prenom'];
@@ -50,12 +50,14 @@ else
 			vous êtes maintenant connecté!</p>
 			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
+			header("Location: index.php");
+
 	}
 	else 
 	{
 	    $message = '<p>Une erreur s\'est produite 
 	    pendant votre identification.<br /> Le mot de passe ou le nom ou le prénom
-            entré n\'est pas correcte.</p><p>Cliquez <a href="connexion.php">ici</a> 
+            entré n\'est pas correcte.</p><p>Cliquez <a href="index.php">ici</a> 
 	    pour revenir à la page précédente
 		<br /><br />Cliquez <a href="drive/drive.php">ici</a> 
 	    pour revenir à la page d accueil</p>';

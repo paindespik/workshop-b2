@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
-<<<<<<< HEAD
--- Généré le :  lun. 09 sep. 2019 à 13:19
-=======
--- Généré le :  lun. 09 sep. 2019 à 13:40
->>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
+-- Généré le :  mar. 10 sep. 2019 à 09:30
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -23,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `co'stant_bd`
+-- Base de données :  `co_stand_bd`
 --
 
 -- --------------------------------------------------------
@@ -37,8 +33,7 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `id_projet` int(11) NOT NULL,
   `id_createur` int(11) NOT NULL,
   `texte` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `id_chat` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_chat`)
+  PRIMARY KEY (`id_projet`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -51,9 +46,7 @@ DROP TABLE IF EXISTS `depot`;
 CREATE TABLE IF NOT EXISTS `depot` (
   `id_projet` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL,
-  `chemin` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `id_depot` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_depot`)
+  `chemin` varchar(255) CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -66,19 +59,8 @@ DROP TABLE IF EXISTS `events`;
 CREATE TABLE IF NOT EXISTS `events` (
   `id_post` int(11) NOT NULL,
   `date` date NOT NULL,
-  `lieu` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `id_events` int(11) NOT NULL AUTO_INCREMENT,
-  `text` varchar(255) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id_events`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `events`
---
-
-INSERT INTO `events` (`id_post`, `date`, `lieu`, `id_events`, `text`) VALUES
-(1, '2019-09-10', 'lunel', 1, 'anniv charles'),
-(1, '2019-11-22', 'vauvert', 2, 'anniv adrien');
+  `lieu` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91,18 +73,9 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `id_admin` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nom` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `nb_users` int(255) NOT NULL,
-  `id_groupe` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_groupe`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `groupe`
---
-
-INSERT INTO `groupe` (`id_admin`, `id_user`, `nom`, `nb_users`, `id_groupe`) VALUES
-(1, 1, 'groupe de basket', 255, 1),
-(2, 2, 'groupe de airsoft', 255, 3);
+  `nb_users` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -116,8 +89,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `createur` varchar(50) CHARACTER SET utf8 NOT NULL,
   `id_post` int(11) NOT NULL,
   `id_topic` int(11) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id_post`)
+  `date` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,25 +102,8 @@ DROP TABLE IF EXISTS `projets`;
 CREATE TABLE IF NOT EXISTS `projets` (
   `id_admin` int(11) NOT NULL,
   `id_membres` int(11) NOT NULL,
-  `titre` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `id_projet` int(11) NOT NULL AUTO_INCREMENT,
-  `texte` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_projet`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `projets`
---
-
-INSERT INTO `projets` (`id_admin`, `id_membres`, `titre`, `id_projet`, `texte`) VALUES
-(1, 1, 'projet arnaud', 1, 'comment vaincre Arnaud au babyfoot'),
-<<<<<<< HEAD
-(1, 1, 'projet arnaud', 2, 'comment vaincre Arnaud au babyfoot'),
-(2, 2, 'projet mathieu', 3, 'comment plaquer mathieu au football américain'),
-(2, 2, 'projet mathieu', 4, 'comment plaquer mathieu au football américain');
-=======
-(2, 2, 'projet mathieu', 3, 'comment plaquer mathieu au football américain');
->>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
+  `titre` varchar(50) CHARACTER SET utf8 NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -160,18 +115,8 @@ DROP TABLE IF EXISTS `topic`;
 CREATE TABLE IF NOT EXISTS `topic` (
   `id_topic` int(11) NOT NULL,
   `id_post` int(11) NOT NULL,
-  `titre` varchar(255) NOT NULL,
-  `texte` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_topic`)
+  `titre` int(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `topic`
---
-
-INSERT INTO `topic` (`id_topic`, `id_post`, `titre`, `texte`) VALUES
-(1, 1, 'le basket?', 'le basket c\'est quoi? et bien nous allons y répondre dans ce post'),
-(2, 2, 'l\'airsoft', 'l\'airsoft c\'est quoi et bein nous allons le découvrir dans ce super groupe');
 
 -- --------------------------------------------------------
 
@@ -181,26 +126,22 @@ INSERT INTO `topic` (`id_topic`, `id_post`, `titre`, `texte`) VALUES
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `mdp` varchar(32) CHARACTER SET utf8 NOT NULL,
   `nom` varchar(50) CHARACTER SET utf8 NOT NULL,
   `prenom` varchar(50) CHARACTER SET utf8 NOT NULL,
   `mail` varchar(255) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `id_groupe` int(11) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `id_groupe` (`id_groupe`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `mdp`, `nom`, `prenom`, `mail`) VALUES
-(2, '123456', 'jean', 'delafontaine', 'jean.delafontaine@gmail.com'),
-<<<<<<< HEAD
-(3, '1234567', 'Jean-Jacques', 'rousseau', 'Jean-Jacques.rousseau@gmail.com');
-=======
-(3, '1234567', 'Jean-Jacques', 'rousseau', 'Jean-Jacques.rousseau@gmail.com'),
-(1, '123', 'François-Marie', ' Arouet', 'François-Marie.Arouet@gmail.com');
->>>>>>> d71c555037ed76aed5b89318aef78b163533dc98
+INSERT INTO `users` (`id_user`, `mdp`, `nom`, `prenom`, `mail`, `id_groupe`) VALUES
+(2, 'c1442c2c6ec7407b0e3ebfc8006dc819', 'Noel', 'Adrien', 'toto@gmail.com', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

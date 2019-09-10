@@ -116,7 +116,7 @@ $nom_free=($query->fetchColumn()==0)?1:0;
    {
 	echo'<h1>Inscription terminée</h1>';
         echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['nom'])).' vous êtes maintenant inscrit sur le forum</p>
-	<p>Cliquez <a href="test.php">ici</a> pour revenir à la page d accueil</p>';
+	<p>Cliquez <a href="index.php">ici</a> pour revenir à la page d accueil</p>';
 
    
         $query=$bdd->prepare('INSERT INTO users (nom, prenom, mdp, mail)

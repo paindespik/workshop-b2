@@ -6,10 +6,6 @@
 
 <body>
 
-<h1>PROJETS HUB</h1>
-<p><a href="addproject.php">Créer projets<a></p>
-<p>ici: mes projets</p>
-
 <!-- envoie de la photo au fichier d'enregistrement -->
 <form action="addFile.php" method="post" enctype="multipart/form-data" class="form-inline">
 	<div class="form-group">

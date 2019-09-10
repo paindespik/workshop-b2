@@ -17,7 +17,6 @@
 <p><a href="addproject.php">Créer projets<a></p>
 <p>ici: mes projets</p>
 <?php
-var_dump($bdd);
 // On récupère le titre des projets dont l'users est membre 
 $reponse = $bdd->query('SELECT titre FROM projets, membres_projets WHERE id_membre ='.$id.'');
 // On affiche chaque entrée une à une
@@ -25,10 +24,7 @@ while ($donnees = $reponse->fetch())
 {
     ?><a href="drive.php?projet=<?php echo($donnees['titre']) ?> "><?php echo($donnees['titre']. '<br>');
 }
-echo($donnees['titre']); 
-
 $reponse->closeCursor(); // Termine le traitement de la requête
-
 ?>
 </body>
 

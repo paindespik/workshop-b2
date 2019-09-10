@@ -7,11 +7,6 @@
 
 <body> 
     <a href="drive_hub.php">Retour</a>
-<h1>
-
-	<h1>DEPOT DE FICHIERS</h1>
-
-=======
 <?php 
     include("../header.php");
     include("../menu.php");
@@ -20,7 +15,13 @@
     $projet = substr($projet,36);
     $projet = str_replace('%20',' ',$projet);
 
-    echo($projet);
+    ?>
+	<h1>
+=======
+<br>
+<?php echo($projet); ?></h1>
+
+    <?php
 
     $reponse = $bdd->query('SELECT id_projet FROM projets WHERE titre ="'.$projet.'"');
     // On affiche chaque entrée une à une
@@ -45,22 +46,30 @@ $projetId = $projetId[0];
 $reponse->closeCursor(); // Termine le traitement de la requête
 
 
-
 if ($admin){
     ?>
     <p>Vous êtes l'administrateur du groupe.</p>
-    <a href="SupprGroupe.php">Supprimer le groupe</a><br><br>
+    <a href="SupprGroupe.php?id=<?php echo $projetId;?>">Supprimer le groupe</a><br><br>
+    
     <label>Ajouter un membre:</label>
-    <form method="post" action="#">
-        <input>    
-
+    <form method="post" action="addmembres.php?id=<?php echo $projetId;?>">
+        <input type ="text" placeholder="Id du membre à ajouter" name ="addId" value="" required>
+        <input type ="submit">    
     </form>
     <?php
 }
 
+// On récupère le nom des membres 
+$reponse = $bdd->query('SELECT nom, prenom FROM users, membres_projets, projets WHERE id_membre = id_user AND membres_projets.id_projet ='.$projetId.'');
+// On affiche chaque entrée une à une
+?><p>Membre(s) du groupe:</p>
+<?php
+while ($donnees = $reponse->fetch())
+{
+    echo($donnees['nom']." ".$donnees['prenom']."<br>");
+}
+$reponse->closeCursor(); // Termine le traitement de la requête
 ?>
-
-
 
 
 

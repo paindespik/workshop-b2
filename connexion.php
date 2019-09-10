@@ -4,7 +4,6 @@
 session_start();
 $titre="Connexion";
 include_once("header.php");
-var_dump($_SESSION);
 
 if ($bdd){
 		$message='';

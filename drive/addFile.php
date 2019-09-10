@@ -16,17 +16,25 @@
 	}
 
 	if ($resultat == 1){
-		$fileName="f".$id_projet.$newId.".".$extensionsUploaded;
+
+		
+		$fileName="f".".".$extensionsUploaded;
 		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
 		$serverDirectory=__DIR__;
 		$index =strrpos($serverDirectory, DIRECTORY_SEPARATOR);
-		$serverDirectory = substr($serverDirectory, DIRECTORY_SEPARATOR);
-		$serverDirectory = DIRECTORY_SEPARATOR;
-		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
-		$copied = move_uploaded_file($_FILES['nomFichier']), $fullPathName;
+		$serverDirectory = substr($serverDirectory, 0, $index+1);
+		//$serverDirectory .= DIRECTORY_SEPARATOR;
+		$fullPathName = DIRECTORY_SEPARATOR.fichiers.DIRECTORY_SEPARATOR.$fileName;
+		$fullPath=$serverDirectory."drive".$fullPathName;
+		var_dump($fullPath);
+		$file=$_FILES['nomFichier']['tmp_name'];
+		var_dump($file);
+		$copied = move_uploaded_file($file, $fullPath);
+		var_dump($copied);
+		
 	}
 
-/*
+
 	if($copied) {
 		try{
 			$query = "INSERT INTO depot(id_projet, id_admin, chemin) VALUES (:pId, :pNum, :pFilePath)";
@@ -44,7 +52,7 @@
 	else{
 		$resultat = -4;
 	}
-*/
+
 ?>
 
 

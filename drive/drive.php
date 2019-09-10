@@ -8,6 +8,10 @@
 <body> 
     <a href="drive_hub.php">Retour</a>
 <h1>
+
+	<h1>DEPOT DE FICHIERS</h1>
+
+=======
 <?php 
     include("../header.php");
     include("../menu.php");
@@ -15,6 +19,15 @@
     $projet = $_SERVER['REQUEST_URI'];
     $projet = substr($projet,36);
     $projet = str_replace('%20',' ',$projet);
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ce524d37bc31b8dd106b3a79be6bfa4e8981b8e7
+>>>>>>> 6e37ae5d4e4be2d847711c93801a5c646632d9ec
     echo($projet);
 
     $reponse = $bdd->query('SELECT id_projet FROM projets WHERE titre ="'.$projet.'"');
@@ -67,7 +80,7 @@ if ($admin){
 		<label for="nomFichier">choisissez le fichier : </label>label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
 	</div>
-	<input type="hidden" name="file_id" id="file_id" value="<?php echo $photo_id ?>" />
+	<!--<input type="hidden" name="id_project" id="id_project" value="<?php echo $id_project ?>" /> -->
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 

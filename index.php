@@ -19,10 +19,10 @@
 <div class="plainpage">
 
     <div class="titre">
-        <h1>Projets</h1>
+        <h1><a href="drive/drive_hub.php">Projets</a></h1>
     </div>
 
-    <div class="titre2"> <h1>Loisirs</h1>
+    <div class="titre2"> <h1><a href="BDE/loisirs.php">Loisirs</a></h1>
     </div>
 
     <!-- <form method="post">
@@ -36,8 +36,10 @@
         <input type="button"  value="send">
     </form> -->
     <?php               
-        include_once("connexion.php");
         include_once("header.php");
+        if(!isset($_SESSION)){
+            include_once("connexion.php");
+        }
         include_once("menu.php");
      ?>
     <div class="keys">Utilisez gauche et droite pour naviguer</div>

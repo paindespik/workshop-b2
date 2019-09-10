@@ -30,7 +30,7 @@ else
     {
         $message = '<p>une erreur s\'est produite pendant votre identification.
 	Vous devez remplir tous les champs</p>
-	<p>Cliquez <a href="connexion.php">ici</a> pour revenir</p>';
+	<p>Cliquez <a href="index.php">ici</a> pour revenir</p>';
     }
     else 
     {
@@ -50,7 +50,7 @@ else
 			vous êtes maintenant connecté!</p>
 			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
-			header("Location: index.php"); //, true, ($nbModifs == 0 ? 204 : 202));
+			header("Location: index.php");
 
 	}
 	else 

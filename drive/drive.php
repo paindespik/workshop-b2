@@ -6,6 +6,8 @@
 
 <body>
 
+<h1>DEPOT DE FICHIERS</h1>
+
 <!-- envoie de la photo au fichier d'enregistrement -->
 <form action="addFile.php" method="post" enctype="multipart/form-data" class="form-inline">
 	<div class="form-group">

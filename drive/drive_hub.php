@@ -14,7 +14,7 @@
 <p><a href="addproject.php">Créer projets<a></p>
 <p>ici: mes projets</p>
 <?php
-    
+$_SESSION['id']=1;
 // On récupère le titre des projets dont l'users est membre 
 $reponse = $bdd->query('SELECT titre FROM projets WHERE id_membres ='.$_SESSION['id'].'');
 // On affiche chaque entrée une à une

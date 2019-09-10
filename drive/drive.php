@@ -12,15 +12,10 @@
     $projet = substr($projet,36);    // retourne "ef"
     $projet = str_replace('%20',' ',$projet);
 
-<<<<<<< HEAD
-<h1>DEPOT DE FICHIERS</h1>
-
-=======
     echo($projet);
 ?>
 </h1>
 <h2> Dépot de fichier </h2>
->>>>>>> e855aaf95132ec2c0025fa7574ce0cdb3465ed4e
 <!-- envoie de la photo au fichier d'enregistrement -->
 <form action="addFile.php" method="post" enctype="multipart/form-data" class="form-inline">
 	<div class="form-group">

@@ -12,6 +12,18 @@
 
 <body>
 
+
+ <?php               
+        include_once("header.php");        
+        include_once("menu.php"); 
+          
+      if($id == 0){
+            include_once("connexion.php");
+        }
+        var_dump($id);
+     ?>
+
+
 <div class="logo">
     <img src="img/logocostant13.png" alt="Logo">
 </div>
@@ -35,13 +47,7 @@
         </p>
         <input type="button"  value="send">
     </form> -->
-    <?php               
-        include_once("header.php");
-        if(!isset($_SESSION)){
-            include_once("connexion.php");
-        }
-        include_once("menu.php");
-     ?>
+   
     <div class="keys">Utilisez gauche et droite pour naviguer</div>
 
 </div>

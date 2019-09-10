@@ -1,7 +1,7 @@
 <?php
 echo ' <div>';
 
-if (!isset($_SESSION)) {
+if ($id == 0) {
     echo "déco </div> ";
 }else{
     echo 'Bonjour '.$nom.' '.$prenom;

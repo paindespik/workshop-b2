@@ -16,16 +16,20 @@
 	}
 
 	if ($resultat == 1){
-		$fileName="f".$id_projet.$newId.".".$extensionsUploaded;
+
+		
+		$fileName="f".".".$extensionsUploaded;
 		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
 		$serverDirectory=__DIR__;
 		$index =strrpos($serverDirectory, DIRECTORY_SEPARATOR);
 		$serverDirectory = substr($serverDirectory, 0, $index+1);
 		//$serverDirectory .= DIRECTORY_SEPARATOR;
-		$fullPathName = "fichiers".DIRECTORY_SEPARATOR.$fileName;
-		var_dump($serverDirectory . $fullPathName);
-
-		$copied = move_uploaded_file($_FILES['nomFichier']['tmp_name'],$serverDirectory . $fullPathName);
+		$fullPathName = DIRECTORY_SEPARATOR.fichiers.DIRECTORY_SEPARATOR.$fileName;
+		$fullPath=$serverDirectory."drive".$fullPathName;
+		var_dump($fullPath);
+		$file=$_FILES['nomFichier']['tmp_name'];
+		var_dump($file);
+		$copied = move_uploaded_file($file, $fullPath);
 		var_dump($copied);
 		
 	}

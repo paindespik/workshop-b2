@@ -28,7 +28,7 @@
 		<label for="nomFichier">choisissez le fichier : </label>label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
 	</div>
-	<input type="hidden" name="file_id" id="file_id" value="<?php echo $photo_id ?>" />
+	<!--<input type="hidden" name="id_project" id="id_project" value="<?php echo $id_project ?>" /> -->
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 

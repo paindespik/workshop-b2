@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +9,56 @@
     <a href="drive_hub.php">Retour</a>
 <h1>
 <?php 
-    $projet = $_SERVER['REQUEST_URI'];
-    $projet = substr($projet,36);    // retourne "ef"
-    $projet = str_replace('%20',' ',$projet);
+    include("../header.php");
+    include("../menu.php");
 
+    $projet = $_SERVER['REQUEST_URI'];
+    $projet = substr($projet,36);
+    $projet = str_replace('%20',' ',$projet);
     echo($projet);
+
+    $reponse = $bdd->query('SELECT id_projet FROM projets WHERE titre ="'.$projet.'"');
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch())
+    {
+         $projetId = $donnees;
+    }
+
+    $reponse->closeCursor(); // Termine le traitement de la requête
+
+
+
+    $reponse = $bdd->query('SELECT id_projet FROM projets, users WHERE id_admin = id_user');
+// On affiche chaque entrée une à une
+while ($donnees = $reponse->fetch())
+{
+    if ($donnees == $projetId){
+        $admin = 1;
+    }
+}
+
+$reponse->closeCursor(); // Termine le traitement de la requête
+
+
+
+if ($admin){
+    ?>
+    <p>Vous êtes l'administrateur du groupe.</p>
+    <a href="SupprGroupe.php">Supprimer le groupe</a><br><br>
+    <label>Ajouter un membre:</label>
+    <form method="post" action="#">
+        <input>    
+
+    </form>
+    <?php
+}
 ?>
+
+
+
+
+
+
 </h1>
 <h2> Dépot de fichier </h2>
 <!-- envoie de la photo au fichier d'enregistrement -->

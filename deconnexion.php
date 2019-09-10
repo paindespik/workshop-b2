@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_destroy();
-include_once('./Index.php');
+include_once('header.php');
 $titre="Déconnexion";
 if ($id==0) erreur(ERR_IS_NOT_CO);
 

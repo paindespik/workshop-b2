@@ -19,15 +19,7 @@
     $projet = $_SERVER['REQUEST_URI'];
     $projet = substr($projet,36);
     $projet = str_replace('%20',' ',$projet);
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ce524d37bc31b8dd106b3a79be6bfa4e8981b8e7
->>>>>>> 6e37ae5d4e4be2d847711c93801a5c646632d9ec
     echo($projet);
 
     $reponse = $bdd->query('SELECT id_projet FROM projets WHERE titre ="'.$projet.'"');
@@ -49,7 +41,7 @@ while ($donnees = $reponse->fetch())
         $admin = 1;
     }
 }
-
+$projetId = $projetId[0];
 $reponse->closeCursor(); // Termine le traitement de la requête
 
 
@@ -65,6 +57,7 @@ if ($admin){
     </form>
     <?php
 }
+
 ?>
 
 
@@ -79,8 +72,9 @@ if ($admin){
 	<div class="form-group">
 		<label for="nomFichier">choisissez le fichier : </label>label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
+
 	</div>
-	<!--<input type="hidden" name="id_project" id="id_project" value="<?php echo $id_project ?>" /> -->
+	<input type="hidden" name="id_project" id="id_project" value="<?php echo $projetId ?>" />
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 

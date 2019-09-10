@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,6 @@
 <?php
     include_once("../header.php");
     include_once("../menu.php");
-
 ?>
 <a href="../index.php">Retour à l'accueil </a>
 <h1>PROJETS HUB</h1>

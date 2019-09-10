@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dépot de fichier</title>
+<title>Votre projet</title>
 </head>
 
 <body>
@@ -17,5 +17,9 @@
 	<input type="hidden" name="file_id" id="file_id" value="<?php echo $photo_id ?>" />
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
+
+<h1> Publications: <h1>
+
+
 
 </body>    

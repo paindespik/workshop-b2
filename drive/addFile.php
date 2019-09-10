@@ -20,13 +20,17 @@
 		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
 		$serverDirectory=__DIR__;
 		$index =strrpos($serverDirectory, DIRECTORY_SEPARATOR);
-		$serverDirectory = substr($serverDirectory, DIRECTORY_SEPARATOR);
-		$serverDirectory = DIRECTORY_SEPARATOR;
-		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
-		$copied = move_uploaded_file($_FILES['nomFichier']), $fullPathName;
+		$serverDirectory = substr($serverDirectory, 0, $index+1);
+		//$serverDirectory .= DIRECTORY_SEPARATOR;
+		$fullPathName = "fichiers".DIRECTORY_SEPARATOR.$fileName;
+		var_dump($serverDirectory . $fullPathName);
+
+		$copied = move_uploaded_file($_FILES['nomFichier']['tmp_name'],$serverDirectory . $fullPathName);
+		var_dump($copied);
+		
 	}
 
-/*
+
 	if($copied) {
 		try{
 			$query = "INSERT INTO depot(id_projet, id_admin, chemin) VALUES (:pId, :pNum, :pFilePath)";
@@ -44,7 +48,7 @@
 	else{
 		$resultat = -4;
 	}
-*/
+
 ?>
 
 

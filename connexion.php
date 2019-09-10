@@ -43,7 +43,8 @@ else
 	
 	if ($data['mdp'] == md5($_POST['password']) || $data['prenom'] == $_POST['prenom'])
 	{
-	    $_SESSION['nom'] = $data['nom'];
+		$_SESSION['nom'] = $data['nom'];
+		$_SESSION['prenom'] = $data['prenom'];
 	    $_SESSION['id'] = $data['id_user'];
 	    $message = '<p>Bienvenue '.$data['nom'].', 
 			vous êtes maintenant connecté!</p>

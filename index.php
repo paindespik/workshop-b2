@@ -36,8 +36,9 @@
         <input type="button"  value="send">
     </form> -->
     <?php               
-        include_once("menu.php");
         include_once("connexion.php");
+        include_once("header.php");
+        include_once("menu.php");
      ?>
     <div class="keys">Utilisez gauche et droite pour naviguer</div>
 

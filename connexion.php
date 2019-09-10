@@ -50,6 +50,8 @@ else
 			vous êtes maintenant connecté!</p>
 			<p>Cliquez <a href="../index.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
+			header("Location: index.php"); //, true, ($nbModifs == 0 ? 204 : 202));
+
 	}
 	else 
 	{

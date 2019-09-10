@@ -3,7 +3,7 @@
 
 session_start();
 $titre="Connexion";
-include_once("getbdd.php");
+include_once("header.php");
 if ($bdd){
 if (!isset($_POST['nom'])) 
 {
@@ -41,7 +41,7 @@ else
 		$data=$query->fetch();
 
 	
-	if ($data['mdp'] == md5($_POST['password']) || $data['prenom'] == $_POST['prenom'])
+	if ($data['mdp'] == md5($_POST['password']) && $data['prenom'] == $_POST['prenom'])
 	{
 		$_SESSION['nom'] = $data['nom'];
 		$_SESSION['prenom'] = $data['prenom'];
@@ -50,6 +50,7 @@ else
 			vous êtes maintenant connecté!</p>
 			<p>Cliquez <a href="../accueil.php">ici</a> 
 			pour revenir à la page d accueil</p>'; 
+			var_dump($_SESSION['nom']);
 	}
 	else 
 	{

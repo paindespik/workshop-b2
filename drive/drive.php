@@ -87,7 +87,36 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 
-<h2> Publications: <h2>
+<h2> Publications: ••••••<h2>
+<<?php  
+if($bdd){
+	$query = "SELECT * FROM depot WHERE id_depot";
+	$stmt = $bdd->prepare($query);
+	$stmt->bindParam('id_project',$id_project);
+	$stmt->execute();
+
+	$file = $stmt->fetch(PDO::FETCH_OBJ);
+
+
+	if($file) {
+		while($file) {
+			?>
+			<div class="col-1g-1 col-md-2">
+				<div class="panel panel-green">
+					<div class="panel-heading">
+						<div class="row">
+							<p> <?php echo $file->titre?> </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	}
+}
+
+
+
+
 
 
 

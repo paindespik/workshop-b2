@@ -1,8 +1,13 @@
 <?php
 	session_start();
-	include 
+	include("../header.php");
+    include("../menu.php");
 	$resultat=1;
+
+
 	include("../getbdd.php");
+
+	$titre=$_FILES['nomFichier']['name'];
 	if ($_FILES['nomFichier']['error'] > 0) {
 		$resultat = -1;
 	}
@@ -40,8 +45,10 @@ var_dump($fullPathName);
 
 	if($copied) {
 		try{
-			$query = "INSERT INTO depot(id_projet, chemin) VALUES (:pId, :pFilePath)";
+			$query = "INSERT INTO depot(id_projet, titre, id_createur, chemin) VALUES (:pId, :pTitre, :pIdCreateur, :pFilePath)";
 			$stmt = $bdd->prepare ($query);
+			$stmt = $bdd->bindParam(':pTitre', $titre);
+			$stmt = $bdd->bindParam(':pIdCreateur', $id_createur);
 			$stmt->bindParam(':pId', $id_projet);
 			$stmt->bindParam(':pFilePath', $fullPathName);
 			$nbInsert = $stmt->execute();

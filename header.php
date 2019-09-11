@@ -10,7 +10,6 @@
     $id=(isset($_SESSION['id']))?(int) $_SESSION['id']:0;
     $nom=(isset($_SESSION['nom']))?$_SESSION['nom']:'';
     $prenom=(isset($_SESSION['prenom']))?$_SESSION['prenom']:'';
-    
-    
+        
     include_once("getbdd.php");
     ?>

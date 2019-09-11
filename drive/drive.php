@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,23 +7,73 @@
 
 <body> 
     <a href="drive_hub.php">Retour</a>
-<h1>
-
-	<h1>DEPOT DE FICHIERS</h1>
-
-=======
 <?php 
+    include("../header.php");
+    include("../menu.php");
+
     $projet = $_SERVER['REQUEST_URI'];
-    $projet = substr($projet,36);    // retourne "ef"
+    $projet = substr($projet,36);
     $projet = str_replace('%20',' ',$projet);
 
-<<<<<<< HEAD
-
-
+    ?>
+	<h1>
 =======
->>>>>>> ce524d37bc31b8dd106b3a79be6bfa4e8981b8e7
-    echo($projet);
+<br>
+<?php echo($projet); ?></h1>
+
+    <?php
+
+    $reponse = $bdd->query('SELECT id_projet FROM projets WHERE titre ="'.$projet.'"');
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch())
+    {
+         $projetId = $donnees;
+    }
+
+    $reponse->closeCursor(); // Termine le traitement de la requête
+
+
+
+    $reponse = $bdd->query('SELECT id_projet FROM projets, users WHERE id_admin = id_user');
+// On affiche chaque entrée une à une
+while ($donnees = $reponse->fetch())
+{
+    if ($donnees == $projetId){
+        $admin = 1;
+    }
+}
+$projetId = $projetId[0];
+$reponse->closeCursor(); // Termine le traitement de la requête
+
+
+if ($admin){
+    ?>
+    <p>Vous êtes l'administrateur du groupe.</p>
+    <a href="SupprGroupe.php?id=<?php echo $projetId;?>">Supprimer le groupe</a><br><br>
+    
+    <label>Ajouter un membre:</label>
+    <form method="post" action="addmembres.php?id=<?php echo $projetId;?>">
+        <input type ="text" placeholder="Id du membre à ajouter" name ="addId" value="" required>
+        <input type ="submit">    
+    </form>
+    <?php
+}
+
+// On récupère le nom des membres 
+$reponse = $bdd->query('SELECT nom, prenom FROM users, membres_projets, projets WHERE id_membre = id_user AND membres_projets.id_projet ='.$projetId.'');
+// On affiche chaque entrée une à une
+?><p>Membre(s) du groupe:</p>
+<?php
+while ($donnees = $reponse->fetch())
+{
+    echo($donnees['nom']." ".$donnees['prenom']."<br>");
+}
+$reponse->closeCursor(); // Termine le traitement de la requête
 ?>
+
+
+
+
 </h1>
 <h2> Dépot de fichier </h2>
 <!-- envoie de la photo au fichier d'enregistrement -->
@@ -30,8 +81,9 @@
 	<div class="form-group">
 		<label for="nomFichier">choisissez le fichier : </label>label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
+
 	</div>
-	<!--<input type="hidden" name="id_project" id="id_project" value="<?php echo $id_project ?>" /> -->
+	<input type="hidden" name="id_project" id="id_project" value="<?php echo $projetId ?>" />
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 

@@ -2,8 +2,8 @@
     $host = "localhost";
     $port = "3306";
     $dbName = "co_stand_bd";
-    $login = "paindespik";
-    $password = "asdf1";
+    $login = "root";
+    $password = "";
 
     try
     {

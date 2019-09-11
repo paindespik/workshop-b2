@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 
 <head>
 
@@ -152,9 +152,7 @@ if (!empty($_POST)){
 <?php
 
 ?>
-<a href="../index.php">Retour à l'accueil </a>
-<h1>PROJETS HUB</h1>
-<p><a href="addproject.php">Créer projets<a></p>
+
 <p>ici: mes projets</p>
 <?php
 // On récupère le titre des projets dont l'users est membre 
@@ -172,29 +170,31 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
+            <br>
             <h3 class="mb-0">Débuter un projet</h3>
           </div>
-          <div class="resume-date text-md-right">
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">March 2013 - Present</span>
-          </div>
+          </div> -->
         </div>
-
+           <a href="drive/addproject.php">Créer projets<a>
+             <!-- <br>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Rejoindre un projet</h3>
-          </div>
-          <div class="resume-date text-md-right">
+          </div> -->
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">December 2011 - March 2013</span>
-          </div>
+          </div> -->
         </div>
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <!-- <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Partager un projet</h3>
-          </div>
-          <div class="resume-date text-md-right">
+          </div> -->
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">July 2010 - December 2011</span>
-          </div>
+          </div> -->
         </div>
 
       </div>
@@ -207,24 +207,8 @@ $reponse->closeCursor(); // Termine le traitement de la requête
       <div class="w-100">
         <h2 class="mb-5">Hobbies</h2>
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Créer un club/groupe</h3>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2006 - May 2010</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">Rejoindre un club/groupe</h3>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2002 - May 2006</span>
-          </div>
-        </div>
-
+        <?php include_once("indexForum.php"); ?>
+        
       </div>
     </section>
 

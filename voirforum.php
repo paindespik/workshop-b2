@@ -3,8 +3,8 @@ session_start();
 $titre="Voir un forum";
 include_once("identifiants.php");
 include_once("début.php");
+include_once("header.php");
 include_once("menu.php");
-include_once("menu2.php");
 
 $forum = (int) $_GET['f'];
 

@@ -11,8 +11,8 @@
     include("../header.php");
     include("../menu.php");
 
-    $projet = $_SERVER['REQUEST_URI'];
-    $projet = substr($projet,36);
+    $projet = $_SERVER['QUERY_STRING'];
+    $projet = substr($projet,7);
     $projet = str_replace('%20',' ',$projet);
 
     ?>
@@ -42,6 +42,9 @@ while ($donnees = $reponse->fetch())
         $admin = 1;
     }
 }
+
+
+
 $projetId = $projetId[0];
 $reponse->closeCursor(); // Termine le traitement de la requête
 

@@ -32,7 +32,7 @@
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Co'stant</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/2Logo.png" alt="">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/2Logo2.png" alt="">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,9 +152,7 @@ if (!empty($_POST)){
 <?php
 
 ?>
-<a href="../index.php">Retour à l'accueil </a>
-<h1>PROJETS HUB</h1>
-<p><a href="addproject.php">Créer projets<a></p>
+
 <p>ici: mes projets</p>
 <?php
 // On récupère le titre des projets dont l'users est membre 
@@ -172,29 +170,31 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
+            <br>
             <h3 class="mb-0">Débuter un projet</h3>
           </div>
-          <div class="resume-date text-md-right">
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">March 2013 - Present</span>
-          </div>
+          </div> -->
         </div>
-
+           <a href="drive/addproject.php">Créer projets<a>
+             <!-- <br>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Rejoindre un projet</h3>
-          </div>
-          <div class="resume-date text-md-right">
+          </div> -->
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">December 2011 - March 2013</span>
-          </div>
+          </div> -->
         </div>
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <!-- <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Partager un projet</h3>
-          </div>
-          <div class="resume-date text-md-right">
+          </div> -->
+          <!-- <div class="resume-date text-md-right">
             <span class="text-primary">July 2010 - December 2011</span>
-          </div>
+          </div> -->
         </div>
 
       </div>

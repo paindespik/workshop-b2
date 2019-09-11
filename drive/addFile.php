@@ -32,23 +32,19 @@
 		//$serverDirectory .= DIRECTORY_SEPARATOR;
 		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
 		$fullPath=$serverDirectory."drive".$fullPathName;
-		var_dump($fullPath);
 		$file=$_FILES['nomFichier']['tmp_name'];
-		var_dump($file);
 		$copied = move_uploaded_file($file, $fullPath);
-		var_dump($copied);
 		
 	}
 $id_projet = $_POST['id_project'];
-var_dump($id_projet);
-var_dump($fullPathName);
+var_dump($bdd);
+
 
 	if($copied) {
 		try{
-			$query = "INSERT INTO depot(id_projet, titre, id_createur, chemin) VALUES (:pId, :pTitre, :pIdCreateur, :pFilePath)";
-			$stmt = $bdd->prepare ($query);
-			$stmt = $bdd->bindParam(':pTitre', $titre);
-			$stmt = $bdd->bindParam(':pIdCreateur', $id_createur);
+			$stmt = $bdd->prepare("INSERT INTO depot(id_projet, titre, id_createur, chemin) VALUES (:pId, :pTitre, :pIdCreateur, :pFilePath)");
+			$stmt->bindParam(':pTitre', $titre);
+			$stmt->bindParam(':pIdCreateur', $id);
 			$stmt->bindParam(':pId', $id_projet);
 			$stmt->bindParam(':pFilePath', $fullPathName);
 			$nbInsert = $stmt->execute();
@@ -61,7 +57,7 @@ var_dump($fullPathName);
 	else{
 		$resultat = -4;
 	}
-
+	header("Location: drive_hub.php");
 ?>
 
 

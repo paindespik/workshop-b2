@@ -79,7 +79,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 <!-- envoie de la photo au fichier d'enregistrement -->
 <form action="addFile.php" method="post" enctype="multipart/form-data" class="form-inline">
 	<div class="form-group">
-		<label for="nomFichier">choisissez le fichier : </label>label>
+		<label for="nomFichier">choisissez le fichier : </label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
 
 	</div>
@@ -87,8 +87,8 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 
-<h2> Publications: ••••••<h2>
-<<?php  
+<h2> Publications:<h2>
+<?php  
 if($bdd){
 	$query = "SELECT * FROM depot WHERE id_depot";
 	$stmt = $bdd->prepare($query);
@@ -96,8 +96,6 @@ if($bdd){
 	$stmt->execute();
 
 	$file = $stmt->fetch(PDO::FETCH_OBJ);
-
-
 	if($file) {
 		while($file) {
 			?>
@@ -109,15 +107,14 @@ if($bdd){
 						</div>
 					</div>
 				</div>
-			</div>
-		}
+            </div>
+           <?php
+        $file = $stmt->fetch(PDO::FETCH_OBJ);
+        }
 	}
 }
 
-
-
-
-
+ ?>
 
 
 </body>    

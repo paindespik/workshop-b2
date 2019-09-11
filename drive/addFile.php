@@ -1,5 +1,6 @@
 <?php
-
+	session_start();
+	include 
 	$resultat=1;
 	include("../getbdd.php");
 	if ($_FILES['nomFichier']['error'] > 0) {
@@ -24,7 +25,7 @@
 		$index =strrpos($serverDirectory, DIRECTORY_SEPARATOR);
 		$serverDirectory = substr($serverDirectory, 0, $index+1);
 		//$serverDirectory .= DIRECTORY_SEPARATOR;
-		$fullPathName = DIRECTORY_SEPARATOR.fichiers.DIRECTORY_SEPARATOR.$fileName;
+		$fullPathName = DIRECTORY_SEPARATOR."fichiers".DIRECTORY_SEPARATOR.$fileName;
 		$fullPath=$serverDirectory."drive".$fullPathName;
 		var_dump($fullPath);
 		$file=$_FILES['nomFichier']['tmp_name'];

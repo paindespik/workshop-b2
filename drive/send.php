@@ -20,13 +20,5 @@ $stmt->bindValue(':id', $id,PDO::PARAM_INT);
 $stmt->bindValue(':texte', $message,PDO::PARAM_STR );
 $stmt->execute();
 
-$file = $stmt->fetch();
-	if($file) {
-		while($file) {
-         echo $file->titre;
-        $file = $stmt->fetch();
-        }
-	}
-
 header("Location: ../index.php");
 ?>

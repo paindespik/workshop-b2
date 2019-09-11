@@ -14,7 +14,6 @@ $query->execute();
         while ($data = $query->fetch())
         {
             if( $data['membre_id'] == $id){
-
             
     echo'
     '.stripslashes(htmlspecialchars($data['membre_pseudo'])).'</a></strong></td>; 

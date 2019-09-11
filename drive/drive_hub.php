@@ -1,11 +1,3 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Projets pro</title>
-</head>
-
-<body>
 
 <?php
     include_once("../header.php");
@@ -26,5 +18,5 @@ while ($donnees = $reponse->fetch())
 }
 $reponse->closeCursor(); // Termine le traitement de la requête
 ?>
-</body>
+
 

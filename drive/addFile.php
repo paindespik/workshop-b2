@@ -57,7 +57,7 @@ var_dump($bdd);
 	else{
 		$resultat = -4;
 	}
-	header("Location: drive_hub.php");
+	header("Location: ../index.php");
 ?>
 
 

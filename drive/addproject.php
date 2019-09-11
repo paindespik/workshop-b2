@@ -39,7 +39,7 @@ if (isset ($_GET['nom'])){
         $nbInsert = 0;
     }
 
-    header("Location: drive_hub.php"); //, true, ($nbModifs == 0 ? 204 : 202));
+    header("Location: ../index.php"); //, true, ($nbModifs == 0 ? 204 : 202));
 }
 
 ?>

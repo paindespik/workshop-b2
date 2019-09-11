@@ -11,6 +11,6 @@ $id_projet = substr($id_projet, -2);
 
 $stmt = $bdd->prepare("INSERT INTO membres_projets VALUES (".$addId.",".$id_projet.")");                                
 $stmt->execute();
-header("Location: drive_hub.php");
+header("Location: ../index.php");
 
 ?>

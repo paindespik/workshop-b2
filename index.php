@@ -72,7 +72,8 @@
 
         <div class="formulaire" id="test">
 
-        <?php include_once("header.php"); 
+        <?php 
+        include_once("header.php"); 
         include_once("menu.php"); 
 
         if($id == 0){ ?>
@@ -139,6 +140,35 @@ if (!empty($_POST)){
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
       <div class="w-100">
         <h2 class="mb-5">Projets</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Projets pro</title>
+</head>
+
+<body>
+
+<?php
+
+?>
+<a href="../index.php">Retour à l'accueil </a>
+<h1>PROJETS HUB</h1>
+<p><a href="addproject.php">Créer projets<a></p>
+<p>ici: mes projets</p>
+<?php
+// On récupère le titre des projets dont l'users est membre 
+$reponse = $bdd->query('SELECT titre FROM projets, membres_projets WHERE id_membre ='.$id.'');
+// On affiche chaque entrée une à une
+while ($donnees = $reponse->fetch())
+{
+    ?><a href="drive/drive.php?projet=<?php echo($donnees['titre']) ?> "><?php echo($donnees['titre']. '<br>');
+}
+$reponse->closeCursor(); // Termine le traitement de la requête
+?>
+</body>
+
+
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">

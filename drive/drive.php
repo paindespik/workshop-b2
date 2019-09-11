@@ -98,21 +98,26 @@ if($bdd){
 	$stmt->bindParam('id_project',$id_project);
 	$stmt->execute();
 
-	$file = $stmt->fetch(PDO::FETCH_OBJ);
+	$file = $stmt->fetch();
 	if($file) {
 		while($file) {
+			
+			$chemin_bis= "/drive".$file["chemin"];
 			?>
 			<div class="col-1g-1 col-md-2">
 				<div class="panel panel-green">
 					<div class="panel-heading">
 						<div class="row">
-							<p> <?php echo $file->titre?> </p>
+
+							<p> <?php  echo $file->titre;?> </p> 
+							<p> <a href="<?php echo $chemin_bis;?>">Download </a></p>
+						
 						</div>
 					</div>
 				</div>
             </div>
            <?php
-        $file = $stmt->fetch(PDO::FETCH_OBJ);
+        $file = $stmt->fetch();
         }
 	}
 }

@@ -109,8 +109,8 @@ if($bdd){
 					<div class="panel-heading">
 						<div class="row">
 
-							<p> <?php  echo $file->titre;?> </p> 
-							<p> <a href="<?php echo $chemin_bis;?>">Download </a></p>
+							 
+							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a></p>
 						
 						</div>
 					</div>

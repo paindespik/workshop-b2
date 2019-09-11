@@ -1,0 +1,4 @@
+Num;PaysUniv;VilleUniv;NomUniv;NomPrenomResponsable;fonctionResponsable;@responsable;telResponsable;Nom;Prenom;NomUsage;Sexe;DateNaiss;Natio1;Natio2;@mail;tel;session1;session2;preference
+f24;Bélarus;Montpellier;universite;Royo_Arnaud;ministre;k@i.gz;06606050;Roto;Arnaud;roro;M;19/02/1999;Afrique_du_Sud;Afghanistan;a@a.fr;01101010;;;34
+f24;Bélarus;Montpellier;universite;Royo_Arnaud;ministre;k@i.gz;06606050;Darchand;Clara;Clacla;M;19/11/1997;Bélarus;Bélarus;r@darc.fr;0112233665;;;34
+f24;Bélarus;Montpellier;universite;Royo_Arnaud;ministre;k@i.gz;06606050;Royo;Michel;dz;M;17/11/1995;Barbade;non;az@ev.fr;8/8/8/8;;;34

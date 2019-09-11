@@ -97,7 +97,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 
 <?php  
 if($bdd){
-	$query = "SELECT * FROM depot WHERE id_depot";
+	$query = "SELECT * FROM depot WHERE depot.id_projet = $projetId ";
 	$stmt = $bdd->prepare($query);
 	$stmt->bindParam('id_project',$id_project);
 	$stmt->execute();

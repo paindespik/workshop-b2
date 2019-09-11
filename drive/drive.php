@@ -102,7 +102,8 @@ if($bdd){
 	if($file) {
 		while($file) {
 			
-			$chemin_bis= "/drive".$file["chemin"];
+			$chemin_bis= "/workshop-b2/drive".$file["chemin"];
+            $chemin_supp="/workshop-b2/drive/supprimer.php?id=".$file["id_depot"];
 			?>
 			<div class="col-1g-1 col-md-2">
 				<div class="panel panel-green">
@@ -110,7 +111,8 @@ if($bdd){
 						<div class="row">
 
 							 
-							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a></p>
+							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a>   <a href="<?php echo $chemin_supp; ?>">Supprimer</a></p>
+
 						
 						</div>
 					</div>

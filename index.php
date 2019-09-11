@@ -153,7 +153,7 @@ if (!empty($_POST)){
 
 ?>
 
-<p>ici: mes projets</p>
+<p>Mes projets</p>
 <?php
 // On récupère le titre des projets dont l'users est membre 
 $reponse = $bdd->query('SELECT titre FROM projets, membres_projets WHERE id_membre ='.$id.' AND membres_projets.id_projet = projets.id_projet');
@@ -164,7 +164,7 @@ while ($donnees = $reponse->fetch())
     ?><a href="drive/drive.php?projet=<?php echo($donnees['titre']) ?> "><?php echo($donnees['titre']. '<br>');
 }
 $reponse->closeCursor(); // Termine le traitement de la requête
-?>
+?></a>
 </body>
 
 
@@ -178,7 +178,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
             <span class="text-primary">March 2013 - Present</span>
           </div> -->
         </div>
-           <a href="drive/addproject.php">Créer projets<a>
+           <a href="drive/addproject.php">Créer projets</a>
              <!-- <br>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">

@@ -90,7 +90,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
 
-<h2> Publications:<h2>
+
 <?php  
 if($bdd){
 	$query = "SELECT * FROM depot WHERE id_depot";
@@ -119,5 +119,22 @@ if($bdd){
 
  ?>
 
+<h2> Publications:<h2>
+
+<form method="POST" action="send?id=.php<?php echo $projetId?>">
+    <input type="text" name="post" placeholder="Envoyer un message" required>    
+    <input type="submit" >
+</form>
+
+<?php 
+    $query =   "SELECT texte, nom, prenom 
+                FROM chat, users, membres_projets 
+                WHERE id_createur = id_user 
+                AND membres_projets.id_projet=chat.id_projet 
+                AND id_membre = id_user";
+	$stmt = $bdd->prepare($query);
+    $stmt->execute();
+    var_dump($stmt);
+?>
 
 </body>    

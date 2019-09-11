@@ -73,7 +73,8 @@
         <div class="formulaire" id="test">
 
         <?php include_once("header.php"); 
-        
+        include_once("menu.php"); 
+
         if($id == 0){ ?>
         <form method="post"  class="form-style-9" action="#">
           <fieldset>
@@ -86,8 +87,9 @@
           </fieldset>
           <p>
             <input type="submit" value="Connexion" /></p>
+            <a href="enregistrer.php">Pas encore inscrit ?</a>
         </form>
-        <a href="enregistrer.php">Pas encore inscrit ?</a>
+        
         <?php
         }
      ?>
@@ -118,12 +120,9 @@ if (!empty($_POST)){
     $query->CloseCursor();
     echo $message.'</div></body></html>';
 }	    
-        include_once("menu.php"); 
+        
+
 ?>
-
-
-
-
 
 
         <div class="social-icons">

@@ -45,11 +45,11 @@ session_start();
     	
 	$serverDirectory = __DIR__;
 
-
-	$index = strrpos($serverDirectory, DIRECTORY_SEPARATOR);
-	$serverDirectory = substr($serverDirectory, 0, $index+1);
+	// $index = strrpos($serverDirectory, DIRECTORY_SEPARATOR);
+	// $serverDirectory = substr($serverDirectory, 0, $index+1);
 	$serverDirectory .= $filePath[0];
 	
+		var_dump($serverDirectory);
 
 	if (file_exists($serverDirectory)){
 	

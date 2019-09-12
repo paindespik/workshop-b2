@@ -71,8 +71,9 @@ $reponse = $bdd->query('SELECT id_user, nom, prenom FROM users, membres_projets,
 while ($donnees = $reponse->fetch())
 {
     ?><div><?php echo($donnees['nom']." ".$donnees['prenom']."<br>");?> </div> 
+    <?php if (isset($admin)){ ?>
      <a href="supprMembre.php?id=<?php echo ($donnees['id_user']."&projet=".$projetId); ?>">
-     <?php if (isset($admin)){ ?>
+     
     Supprimer le membre</a> <br><br><?php }
 
 }

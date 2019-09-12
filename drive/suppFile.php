@@ -37,7 +37,7 @@ session_start();
     	$stmt->bindParam(':pId', $id);
     	$stmt->execute();
     	echo ("well played");
-    	var_dump($id);
+    	// var_dump($id);
 	
 //suppression fichier server
 
@@ -45,13 +45,13 @@ session_start();
     	
 	$serverDirectory = __DIR__;
 
-	$index = strrpos($serverDirectory, DIRECTORY_SEPARATOR);
-	$serverDirectory = substr($serverDirectory, 0, $index+1);
+	// $index = strrpos($serverDirectory, DIRECTORY_SEPARATOR);
+	// $serverDirectory = substr($serverDirectory, 0, $index+1);
 	$serverDirectory .= $filePath[0];
 	
+		var_dump($serverDirectory);
 
 	if (file_exists($serverDirectory)){
-		var_dump($serverDirectory);
 		unlink($serverDirectory);
 	}
 

@@ -140,15 +140,17 @@ if($bdd){
 </form>
 
 <?php 
-    $query =   "SELECT chat.texte, nom, prenom 
+    $query =   "SELECT chat.texte, users.nom, users.prenom 
                 FROM chat, users, projets, membres_projets 
-                WHERE id_createur = id_user 
-                AND membres_projets.id_projet=chat.id_projet 
-                AND id_membre = id_user                
+
+                WHERE membres_projets.id_membre = users.id_user
+                AND  chat.id_createur = users.id_user
+                
+                AND projets.id_projet=chat.id_projet
                 AND chat.id_projet = $projetId";
 	$stmt = $bdd->prepare($query);
     $stmt->execute();
-	var_dump($file = $stmt->fetchAll());
+	// var_dump($file = $stmt->fetchAll());
 	while($file = $stmt->fetch()) {    
         ?><div><?php echo ($file['texte']." (par ".$file['nom']." ".$file['prenom'].")<br>");?></div> <?php
     }

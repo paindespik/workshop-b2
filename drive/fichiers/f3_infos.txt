@@ -1,0 +1,4 @@
+Num;PaysUniv;VilleUniv;NomUniv;NomPrenomResponsable;fonctionResponsable;@responsable;telResponsable;Nom;Prenom;NomUsage;Sexe;DateNaiss;Natio1;Natio2;@mail;tel;session1;session2;preference
+f14;Afrique_du_Sud;Montpellier;universite;Royo_Arnaud;ministre;z@n.fr;06606050;Royo;Arnaud;de;M;19/06/1996;Belgique;non;a@a.fr;01101010;;;34
+f14;Afrique_du_Sud;Montpellier;universite;Royo_Arnaud;ministre;z@n.fr;06606050;Darchand;Clara;bob;M;17/11/1996;Barbade;non;a@t.fr;0112233665;;;34
+f14;Afrique_du_Sud;Montpellier;universite;Royo_Arnaud;ministre;z@n.fr;06606050;Royo;Michel;Michel;M;19/02/1996;Bélarus;Barbade;az@e.fr;8/8/8/8;;;34

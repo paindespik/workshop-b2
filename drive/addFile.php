@@ -3,9 +3,10 @@
 	include("../header.php");
     include("../menu.php");
 	$resultat=1;
-
-
 	include("../getbdd.php");
+
+	$nom_projet = $_GET['nom_projet'];
+	var_dump($_GET);
 
 	$titre=$_FILES['nomFichier']['name'];
 	if ($_FILES['nomFichier']['error'] > 0) {
@@ -57,7 +58,7 @@ var_dump($bdd);
 	else{
 		$resultat = -4;
 	}
-	header("Location: ../index.php");
+	header("Location: drive.php?".$nom_projet);
 ?>
 
 

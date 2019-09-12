@@ -8,19 +8,19 @@ session_start();
     include("../menu.php");
     include("../getbdd.php");
 
+	$nom_projet = "?".$_GET['nom_projet'];
+
 
     if(isset($_GET['id'])){
 
     	
     	$id=htmlspecialchars($_GET['id']);
-    	//var_dump($id);
 
 
     	$stmt = $bdd->prepare ("SELECT chemin FROM depot WHERE id_depot=:pId");
     	$stmt->bindParam(':pId', $id);
     	$stmt->execute();
     	$filePath = $stmt->fetch();
-    	//var_dump($filePath[0]);
 
 
     	
@@ -41,8 +41,6 @@ session_start();
 	// $serverDirectory = substr($serverDirectory, 0, $index+1);
 	$serverDirectory .= $filePath[0];
 	
-		var_dump($serverDirectory);
-
 	if (file_exists($serverDirectory)){
 	
 		unlink($serverDirectory);
@@ -50,6 +48,6 @@ session_start();
 
 
 }
-header("Location: ../index.php");
+header("Location: drive.php".$nom_projet);   
 ?>
 

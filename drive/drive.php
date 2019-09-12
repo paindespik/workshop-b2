@@ -8,8 +8,8 @@
 <style>
 
 body{
-            background-color: #F76A19;
-            text-align: center;
+         background-color: #BD5D38;
+        text-align: center;
         }
         h2{
             max-width: 450px;
@@ -105,15 +105,16 @@ while ($donnees = $reponse->fetch())
 }
 
 $reponse->closeCursor(); // Termine le traitement de la requête
+
 ?>
 
 
 
 
 </h1>
-<h2> Dépot de fichier </h2>
+<h2> Dépot de fichier 
 <!-- envoie de la photo au fichier d'enregistrement -->
-<form action="addFile.php" method="post" enctype="multipart/form-data" class="form-inline">
+<form action="addFile.php?&nom_projet=<?php echo $nom_url?>" method="post" enctype="multipart/form-data" class="form-inline">
 	<div class="form-group">
 		<label for="nomFichier">choisissez le fichier : </label>
 		<input type="file" class="form-control" name="nomFichier" id="nomFichier" placeholder="Entrer le fichier" value=""/>
@@ -122,7 +123,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 	<input type="hidden" name="id_project" id="id_project" value="<?php echo $projetId ?>" />
 	<input type="submit" value="Ajouter" class="btn btn-default" />
 </form>
-
+</h2>
 
 <?php  
 if($bdd){
@@ -136,14 +137,14 @@ if($bdd){
 		while($file) {
 			
 			$chemin_bis= "/workshop-b2/drive".$file["chemin"];
-            $chemin_supp="/workshop-b2/drive/suppFile.php?id=".$file["id_depot"];
+            $chemin_supp="/workshop-b2/drive/suppFile.php?id=".$file["id_depot"]."&nom_projet=".$nom_url;
 			?>
 			<div class="col-1g-1 col-md-2">
 				<div class="panel panel-green">
 					<div class="panel-heading">
 						<div class="row">
 
-							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a>   <a href="<?php echo $chemin_supp; ?>">Supprimer</a></p>
+							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"]?> </a>   <a href="<?php echo $chemin_supp; ?>">Supprimer</a></p>
 						
 						</div>
 					</div>
@@ -157,13 +158,13 @@ if($bdd){
 
  ?>
 
-<h2> Publications:<h2>
+<h2> Publications:
 
-<form method="POST" action="send.php?id=<?php echo $projetId?>">
+<form method="POST" action="send.php?id=<?php echo $projetId."&nom_projet=".$nom_url?>">
     <input type="text" name="post" placeholder="Envoyer un message" required>    
     <input type="submit" >
 </form>
-
+</h2>
 <?php 
 
     $query = "SELECT chat.texte, nom, prenom
@@ -174,8 +175,8 @@ if($bdd){
 
 	$stmt = $bdd->prepare($query);
     $stmt->execute();
-	// var_dump($file = $stmt->fetchAll());
-	while($file = $stmt->fetch()) {    
+
+    while($file = $stmt->fetch()) {    
         ?><div><?php echo ($file['texte']." (par ".$file['nom']." ".$file['prenom'].")<br>");?></div> <?php
     }
 ?>

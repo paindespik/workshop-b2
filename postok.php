@@ -77,7 +77,7 @@ switch($action)
             $query->execute();
             $query->CloseCursor();
 
-            echo'<p>Votre message a bien été ajouté!<br /><br />Cliquez <a href="./index.php">ici</a> pour revenir à l index du forum<br />
+            echo'<p>Votre message a bien été ajouté!<br /><br />Cliquez <a href="./index.php">ici</a> pour revenir à l Accueil<br />
             Cliquez <a href="voirtopic.php?t='.$nouveautopic.'">ici</a> pour le voir</p>';
         }
     break; 
@@ -138,7 +138,7 @@ switch($action)
             $nbr_post = $data['topic_post']+1;
             $page = ceil($nbr_post / $nombreDeMessagesParPage);
             echo'<p>Votre message a bien été ajouté!<br /><br />
-            Cliquez <a href="index.php">ici</a> pour revenir à l index du forum<br />
+            Cliquez <a href="index.php">ici</a> pour revenir à l Accueil<br />
             Cliquez <a href="voirtopic.php?t='.$topic.'&amp;page='.$page.'#p_'.$nouveaupost.'">ici</a> pour le voir</p>';
         }//Fin du else
     break;
@@ -175,7 +175,7 @@ switch($action)
             $nbr_post = $data2['nbr']+1;
             $page = ceil($nbr_post / $nombreDeMessagesParPage);
             echo'<p>Votre message a bien été édité!<br /><br />
-            Cliquez <a href="./index.php">ici</a> pour revenir à l index du forum<br />
+            Cliquez <a href="./index.php">ici</a> pour revenir à l Accueil<br />
             Cliquez <a href="./voirtopic.php?t='.$topic.'&amp;page='.$page.'#p_'.$post.'">ici</a> pour le voir</p>';
             $query->CloseCursor();
         
@@ -278,7 +278,7 @@ case "delete": //Si on veut supprimer le post
             //Enfin le message
             echo'<p>Le message a bien été supprimé !<br />
             Cliquez <a href="./voirtopic.php?t='.$topic.'">ici</a> pour retourner au topic<br />
-            Cliquez <a href="./index.php">ici</a> pour revenir à l index du forum</p>';
+            Cliquez <a href="./index.php">ici</a> pour revenir à l Accueil</p>';
  
         }
         else // Si c'est un post classique
@@ -313,7 +313,7 @@ case "delete": //Si on veut supprimer le post
             //Enfin le message
             echo'<p>Le message a bien été supprimé !<br />
             Cliquez <a href="./voirtopic.php?t='.$topic.'">ici</a> pour retourner au topic<br />
-            Cliquez <a href="./index.php">ici</a> pour revenir à l index du forum</p>';
+            Cliquez <a href="./index.php">ici</a> pour revenir à l Accueil</p>';
         }
 break;
 

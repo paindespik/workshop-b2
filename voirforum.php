@@ -68,9 +68,11 @@ $query->execute();
 if ($query->rowCount()>0)
 {
         ?>
+        <div class="container">
         <table>   
         <tr>
-        <th><img src="images/annonce.gif" alt="Annonce" /></th>
+        <th><img src="images/annonce.gif" alt="Annonce" style="
+                width: 100;"></th>
         <th class="titre"><strong>Titre</strong></th>             
         <th class="nombremessages"><strong>Réponses</strong></th>
         <th class="nombrevu"><strong>Vus</strong></th>
@@ -84,7 +86,8 @@ if ($query->rowCount()>0)
         {
 
                
-                echo'<tr><td><img src="images/annonce.gif" alt="Annonce" /></td>
+                echo'<tr><td><img src="images/annonce.gif" alt="Annonce" style="
+                width: 100;"></td>
 
                 <td id="titre"><strong>Annonce : </strong>
                 <strong><a href="voirtopic.php?t='.$data['topic_id'].'"                 
@@ -139,7 +142,7 @@ if ($query->rowCount()>0)
 ?>
         <table>
         <tr>
-        <th><img src="./images/message.gif" alt="Message" /></th>
+        <th><img src="./images/message.gif" alt="Message"style="width :100;" /></th>
         <th class="titre"><strong>Titre</strong></th>             
         <th class="nombremessages"><strong>Réponses</strong></th>
         <th class="nombrevu"><strong>Vus</strong></th>
@@ -151,7 +154,7 @@ if ($query->rowCount()>0)
        
         while ($data = $query->fetch())
         {
-                echo'<tr><td><img src="./images/message.gif" alt="Message" /></td>
+                echo'<tr><td><img src="./images/message.gif" alt="Message"style="width :100;" /></td>
 
                 <td class="titre">
                 <strong><a href="voirtopic.php?t='.$data['topic_id'].'"                 
@@ -180,6 +183,7 @@ if ($query->rowCount()>0)
         }
         ?>
         </table>
+        </container>
         <?php
 }
 else 

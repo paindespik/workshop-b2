@@ -83,7 +83,7 @@ if (isset($_GET['f']))
     $query->bindValue(':forum',$forum,PDO::PARAM_INT);
     $query->execute();
     $data=$query->fetch();
-    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> 
+    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Accueil</a> --> 
     <a href="voirforum.php?f='.$data['forum_id'].'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>
     --> Nouveau topic</p>';
 

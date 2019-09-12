@@ -18,7 +18,7 @@ $nombreDeMessagesParPage = 25;
 $nombreDePages = ceil($totalDesMessages / $nombreDeMessagesParPage);
 ?>
 <?php
-echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> 
+echo '<p><i>Vous êtes ici</i> : <a href="index.php">Accueil</a> --> 
 <a href="voirforum.php?f='.$forum.'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>';
 
 
@@ -71,8 +71,7 @@ if ($query->rowCount()>0)
         <div class="container">
         <table>   
         <tr>
-        <th><img src="images/annonce.gif" alt="Annonce" style="
-                width: 100;"></th>
+        <th></th>
         <th class="titre"><strong>Titre</strong></th>             
         <th class="nombremessages"><strong>Réponses</strong></th>
         <th class="nombrevu"><strong>Vus</strong></th>

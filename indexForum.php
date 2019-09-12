@@ -5,7 +5,6 @@ include_once("début.php");
 include_once("getbdd.php");
 include_once("function.php");
 include_once("constant.php");
-echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> <a href ="connexion.php">Connexion</a>';
 ?>
 <?php
 $totaldesmessages = 0;

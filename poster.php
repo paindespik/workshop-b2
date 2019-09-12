@@ -83,7 +83,7 @@ if (isset($_GET['f']))
     $query->bindValue(':forum',$forum,PDO::PARAM_INT);
     $query->execute();
     $data=$query->fetch();
-    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> 
+    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Accueil</a> --> 
     <a href="voirforum.php?f='.$data['forum_id'].'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>
     --> Nouveau topic</p>';
 
@@ -102,7 +102,7 @@ else if (isset($_GET['t']))
     $data=$query->fetch();
     $forum = $data['forum_id'];  
 
-    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> 
+    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Accueil</a> --> 
     <a href="voirforum.php?f='.$data['forum_id'].'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>
     --> <a href="voirtopic.php?t='.$topic.'">'.stripslashes(htmlspecialchars($data['topic_titre'])).'</a>
     --> Répondre</p>';
@@ -123,7 +123,7 @@ else if (isset ($_GET['p']))
     $topic = $data['topic_id'];
     $forum = $data['forum_id'];
  
-    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> 
+    echo '<p><i>Vous êtes ici</i> : <a href="index.php">Accueil</a> --> 
     <a href="voirforum.php?f='.$data['forum_id'].'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>
     --> <a href="voirtopic.php?t='.$topic.'">'.stripslashes(htmlspecialchars($data['topic_titre'])).'</a>
     --> Modérer un message</p>';

@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();        
+ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 
@@ -76,8 +77,10 @@
         include_once("header.php"); 
         include_once("menu.php"); 
 
+
+
         if($id == 0){ ?>
-        <form method="post"  class="form-style-9" action="#">
+        <form method="post"  class="form-style-9" action="connexion.php">
           <fieldset>
           <legend>Connexion</legend>
           <p>
@@ -94,36 +97,6 @@
         <?php
         }
      ?>
-     <?php
-if (!empty($_POST)){
-		$message='';
-        $query=$bdd->prepare('SELECT *
-        FROM users WHERE nom = :nom');
-        $query->bindValue(':nom',$_POST['nom'], PDO::PARAM_STR);
-        $query->execute();
-		$data=$query->fetch();
-
-	
-	if ($data['mdp'] == md5($_POST['password']) && $data['prenom'] == $_POST['prenom'])
-	{
-		$_SESSION['nom'] = $data['nom'];
-		$_SESSION['prenom'] = $data['prenom'];
-		$_SESSION['id'] = $data['id_user'];
-	}
-	else 
-	{
-	    $message = '<p>Une erreur s\'est produite 
-	    pendant votre identification.<br /> Le mot de passe ou le nom ou le prénom
-            entré n\'est pas correcte.</p><p>Cliquez <a href="index.php">ici</a> 
-	    pour revenir à la page précédente
-		<br /></p>';
-	}
-    $query->CloseCursor();
-    echo $message.'</div></body></html>';
-    header("Refresh:0");
-
-}	    
-?>
 
 
         <div class="social-icons">

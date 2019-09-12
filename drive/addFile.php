@@ -15,7 +15,7 @@
 		$resultat= -2;
 	}
 
-	$extensions_valides = array('jpg', 'jpeg', 'png', 'rar', 'zip', 'docx', 'txt', 'html', 'php');
+	$extensions_valides = array('jpg', 'jpeg', 'png', 'rar', 'zip', 'docx', 'txt', 'html', 'php', 'pdf');
 	$extensionsUploaded = strtolower(substr(strrchr($_FILES['nomFichier']['name'],'.') , 1) );
 	if (! in_array($extensionsUploaded,$extensions_valides)){
 		$resultat = -3;

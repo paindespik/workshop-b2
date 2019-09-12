@@ -210,7 +210,18 @@ $reponse->closeCursor(); // Termine le traitement de la requête
         </ul>
       </div>
     </section>
+    <?php
 
+
+    if($id!=0 && $id!=null){
+
+      $chemin_supp="/workshop-b2/suppId.php?id=".$id;
+      
+    }
+    
+
+?>
+<p><a href="<?php echo $chemin_supp; ?>">Supprimer son compte</a></p>
 
   </div>
 
@@ -223,6 +234,13 @@ $reponse->closeCursor(); // Termine le traitement de la requête
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
+
+
+
+
+
+
+
 
 </body>
 

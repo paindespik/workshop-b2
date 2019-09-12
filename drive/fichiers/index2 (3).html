@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body onKeydown="moveHero(event);">
+	<div>
+		<input type="number" min="2" max="15" value="2" id="size" onKeydown="pressText(event);">
+		<button onclick="addText();">Generate text</button>
+		<button onclick="spawnHero();">Spawn</button>
+	</div>
+	<div id="stuff">
+		<!--  HTML ici -->
+	</div>
+	<script type="text/javascript">
+		var size = document.getElementById('size');
+		var stuff = document.getElementById('stuff');
+		var hero_x = -1;
+		var hero_y = -1;
+		var tdSize = 30;
+		function moveHero(evt){
+			var heroTd = document.getElementById(hero_x+'-'+hero_y);
+			var new_x = hero_x;
+			var new_y = hero_y;
+			if(evt.keyCode == 37){
+				// left
+				console.log("left");
+				new_x -= 1;
+			}else if(evt.keyCode == 38){
+				// up
+				console.log("up");
+				new_y -= 1;
+			}else if(evt.keyCode == 39){
+				// right
+				console.log("right");
+				new_x += 1;
+			}else if(evt.keyCode == 40){
+				// down
+				console.log("down");
+				new_y += 1;
+			}
+			if((new_x < 0 || new_x >= size.value) || (new_y < 0 || new_y >= size.value)){
+				console.log("new_x: "+new_x);
+				console.log("new_y: "+new_y);
+				alert("End of the world !");
+				return false;
+			}
+			var new_tile = document.getElementById(new_x+'-'+new_y);
+			var move = new_tile.getAttribute('move') == 'true';
+			if(move){
+				new_tile = setTexture(2, new_tile);
+				heroTd = setTexture(0, heroTd);
+				hero_x = new_x;
+				hero_y = new_y;
+			}else{
+				alert("Noyade !");
+			}
+		}
+		function addText(){
+			generateTable(size.value);
+			spawnHero();
+		}
+		function pressText(evt){
+			if(evt.keyCode == 13){
+				if(size.value < 2){
+					alert("No possible bambinos ! porque inferior a dos !!");
+					return false;
+				}
+				addText();
+			}
+			//console.log(evt);
+		}
+		function generateTable(size){
+			var table = document.createElement("table");
+			table.style.borderCollapse = 'collapse';
+			for (var i = 0; i < size; i++) {
+				var tr = document.createElement("tr");
+				for (var j = 0; j < size; j++) {
+					var td = createTile(td);
+					td.setAttribute('id', j+'-'+i);
+					tr.appendChild(td);	
+				}
+				table.appendChild(tr);
+			}
+			stuff.innerHTML = '';
+			stuff.appendChild(table);
+		}
+		function createTile(){
+			var td = document.createElement("td");
+			var rand = Math.floor(Math.random() * 2);
+			td = setTexture(rand, td);
+			td.setAttribute('align', 'center');
+			return td;
+		}
+		function setTexture(index, td){
+			var imgDir = 'img';
+			var textures = ['sand.jpg', 'water.jpg', 'hero.png'];
+			td.setAttribute('background', imgDir+'/'+textures[index]);
+			td.style.backgroundSize = tdSize+"px "+tdSize+"px";
+			td.setAttribute('width', tdSize+'px');
+			td.setAttribute('height', tdSize+'px');
+			td.setAttribute('move', index == 0 ? true : false);
+			return td;
+		}
+		function spawnHero(){
+			var end = false;
+			do{
+				var x = Math.floor(Math.random() * size.value);
+				var y = Math.floor(Math.random() * size.value);
+				var td = document.getElementById(x+"-"+y);
+				var move = td.getAttribute('move') == 'true';
+				if(move){
+					td = setTexture(2, td);
+					end = true;
+					hero_x = x;
+					hero_y = y;
+				}
+			}while(!end);
+		}
+	</script>
+</body>
+</html>

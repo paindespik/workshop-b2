@@ -120,6 +120,8 @@ if (!empty($_POST)){
 	}
     $query->CloseCursor();
     echo $message.'</div></body></html>';
+    header("Refresh:0");
+
 }	    
 ?>
 

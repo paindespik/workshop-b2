@@ -19,7 +19,7 @@
 	<h1>
 =======
 <br>
-<?php echo($projet); ?></h1>
+<div><?php echo($projet); ?></div></h1>
 
     <?php
 
@@ -64,17 +64,19 @@ if (isset($admin)){
 }
 
 // On récupère le nom des membres
-$reponse = $bdd->query('SELECT id_user, nom, prenom FROM users, membres_projets, projets WHERE id_membre = id_user AND membres_projets.id_projet ='.$projetId.'');
+$reponse = $bdd->query('SELECT id_user, nom, prenom FROM users, membres_projets, projets WHERE id_membre = id_user AND membres_projets.id_projet = projets.id_projet AND membres_projets.id_projet ='.$projetId.'');
 // On affiche chaque entrée une à une
 ?><p>Membre(s) du groupe:</p>
 <?php
 while ($donnees = $reponse->fetch())
 {
-    echo($donnees['nom']." ".$donnees['prenom']."<br>");
-    ?> <a href="supprMembre.php?id=<?php echo ($donnees['id_user']); ?>"><?php if (isset($admin)){ ?>
+    ?><div><?php echo($donnees['nom']." ".$donnees['prenom']."<br>");?> </div> 
+     <a href="supprMembre.php?id=<?php echo ($donnees['id_user']."&projet=".$projetId); ?>">
+     <?php if (isset($admin)){ ?>
     Supprimer le membre</a> <br><br><?php }
-    $file = $reponse->fetch();
+
 }
+
 $reponse->closeCursor(); // Termine le traitement de la requête
 ?>
 
@@ -114,7 +116,7 @@ if($bdd){
 					<div class="panel-heading">
 						<div class="row">
 
-							 
+
 							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a>   <a href="<?php echo $chemin_supp; ?>">Supprimer</a></p>
 
 						
@@ -132,7 +134,7 @@ if($bdd){
 
 <h2> Publications:<h2>
 
-<form method="POST" action="send?id=.php<?php echo $projetId?>">
+<form method="POST" action="send.php?id=<?php echo $projetId?>">
     <input type="text" name="post" placeholder="Envoyer un message" required>    
     <input type="submit" >
 </form>
@@ -142,19 +144,14 @@ if($bdd){
                 FROM chat, users, projets, membres_projets 
                 WHERE id_createur = id_user 
                 AND membres_projets.id_projet=chat.id_projet 
-                AND id_membre = id_user
-                AND chat.id_projet = $projetId ";
+                AND id_membre = id_user                
+                AND chat.id_projet = $projetId";
 	$stmt = $bdd->prepare($query);
     $stmt->execute();
-
-    $file = $stmt->fetch();    
-	if($file) {
-		while($file['texte']) {    
-            echo ($file['texte']." (par ".$file['nom']." ".$file['prenom'].")<br>");
-            $file = $stmt->fetch();
-        }
+	var_dump($file = $stmt->fetchAll());
+	while($file = $stmt->fetch()) {    
+        ?><div><?php echo ($file['texte']." (par ".$file['nom']." ".$file['prenom'].")<br>");?></div> <?php
     }
-
 ?>
 
 </body>    

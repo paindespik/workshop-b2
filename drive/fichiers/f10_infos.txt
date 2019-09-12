@@ -1,0 +1,4 @@
+Num;PaysUniv;VilleUniv;NomUniv;NomPrenomResponsable;fonctionResponsable;@responsable;telResponsable;Nom;Prenom;NomUsage;Sexe;DateNaiss;Natio1;Natio2;@mail;tel;session1;session2;preference
+f16;Afghanistan;htht;rtth;rthrtht;retry;a@lanord.com;thtrh;Reer;reert;rtret;M;02/02/1990;Afghanistan;non;a@lanord.com;regret;;;34
+f16;Afghanistan;htht;rtth;rthrtht;retry;a@lanord.com;thtrh;Rtrt;erter;retre;M;01/02/1989;Afrique_du_Sud;Afrique_du_Sud;a@lanord.com;rat;;;34
+f16;Afghanistan;htht;rtth;rthrtht;retry;a@lanord.com;thtrh;Art;rtrt;ertert;M;02/03/1991;Afrique_du_Sud;Afrique_du_Sud;a@lanord.com;reter;;;34

@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 include("../header.php");
 include("../menu.php");
 
-$id_membre = $_SERVER['QUERY_STRING'];
-$id_membre = substr($id_membre,3);
-var_dump($id_membre);
-$stmt = $bdd->prepare('DELETE FROM membres_projets WHERE id_membre='.$id_membre.'');                                
+$id_membre = $_GET['id'];
+$id_projet = $_GET['projet'];
+
+$stmt = $bdd->prepare('DELETE FROM membres_projets WHERE id_membre='.$id_membre.' AND id_projet ='.$id_projet.'');                                
 $stmt->execute();
-header("Location: ../index.php");   
+ header("Location: ../index.php");   
     ?>

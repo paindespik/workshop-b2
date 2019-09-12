@@ -125,7 +125,7 @@ $nom_free=($query->fetchColumn()==0)?1:0;
 	$query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
 	$query->bindValue(':pass', $pass, PDO::PARAM_STR);
 	$query->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $query->execute();
+    $query->execute();
 
 
         $_SESSION['nom'] = $nom;

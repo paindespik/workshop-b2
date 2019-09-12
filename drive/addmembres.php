@@ -6,9 +6,10 @@ include("../menu.php");
 $addId =$_POST['addId'];
 
 $id_projet = $_SERVER['REQUEST_URI'];
-$id_projet = substr($id_projet, -2);
+$id_projet =  $_GET['id'];
 $id_projet = intval($id_projet);
-$projetId =null; //afaire
+
+
 
 $query =   "SELECT id_user 
             FROM users,membres_projets
@@ -18,7 +19,7 @@ $query =   "SELECT id_user
 	$stmt = $bdd->prepare($query);
     $stmt->execute();
 
-    $file = $stmt->fetch();   
+    $file = $stmt->fetch(); 
 	if($file) {
         $i=0;
         while($file) { 
@@ -36,10 +37,15 @@ $query =   "SELECT id_user
             echo"yes";
 
           $stmt = $bdd->prepare("INSERT INTO membres_projets VALUES (".$addId.",".$id_projet.")");                                
-          $stmt->execute();               
-          header("Location: ../index.php");  
+          $stmt->execute(); 
+          $nom_projet= $_GET['nom_projet'];
+              
+          header("Location: drive.php?".$nom_projet);
+          echo 5;  
         }
-    }
+      
+    }           
+
     
 
     

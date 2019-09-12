@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Votre projet</title>
-</head>
-
-<body> 
-    <a href="../index.php">Retour</a>
 
 
 <?php
@@ -61,6 +53,3 @@ session_start();
 header("Location: ../index.php");
 ?>
 
-
-
-</body>

@@ -27,7 +27,7 @@ if (isset ($_GET['nom'])){
         $stmt->bindParam(':cTitre', $_GET['nom']);
         $stmt->bindParam(':cTexte', $_GET['texte']);
         $nbInsert = $stmt->execute();
-
+            
         $projetId = $bdd->lastInsertId();
         $stmt = $bdd->prepare ("INSERT INTO membres_projets(id_membre, id_projet) VALUES(:cIdMembre, :cProjet)");
         $stmt->bindParam(':cIdMembre', $id);

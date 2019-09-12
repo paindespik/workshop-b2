@@ -39,6 +39,7 @@ body{
     include("../menu.php");
 
     $projet = $_SERVER['QUERY_STRING'];
+    $nom_url = $_SERVER['QUERY_STRING'];
     $projet = substr($projet,7);
     $projet = str_replace('%20',' ',$projet);
 
@@ -58,8 +59,6 @@ body{
     }
 
     $reponse->closeCursor(); // Termine le traitement de la requête
-
-
 
     $reponse = $bdd->query("SELECT id_projet FROM projets, users WHERE id_admin = id_user AND id_user=".$id."");
 
@@ -83,7 +82,7 @@ if (isset($admin)){
     <a href="SupprGroupe.php?id=<?php echo $projetId;?>">Supprimer le groupe</a><br><br>
     
     <label>Ajouter un membre:</label>
-    <form method="post" action="addmembres.php?id=<?php echo $projetId;?>">
+    <form method="post" action="addmembres.php?id=<?php echo($projetId."&nom_projet=".$nom_url)?>" >
         <input type ="text" placeholder="Id du membre à ajouter" name ="addId" value="" required>
         <input type ="submit">    
     </form>
@@ -99,8 +98,8 @@ while ($donnees = $reponse->fetch())
 {
     ?><div><?php echo($donnees['nom']." ".$donnees['prenom']."<br>");?> </div> 
     <?php if (isset($admin)){ ?>
-     <a href="supprMembre.php?id=<?php echo ($donnees['id_user']."&projet=".$projetId); ?>">
-     
+     <a href="supprMembre.php?id=<?php echo ($donnees['id_user']."&projet=".$projetId."&nom_projet=".$nom_url); ?>">
+
     Supprimer le membre</a> <br><br><?php }
 
 }
@@ -144,9 +143,7 @@ if($bdd){
 					<div class="panel-heading">
 						<div class="row">
 
-
 							<p> <a href="<?php echo $chemin_bis;?>"><?php echo $file["titre"] ?> </a>   <a href="<?php echo $chemin_supp; ?>">Supprimer</a></p>
-
 						
 						</div>
 					</div>

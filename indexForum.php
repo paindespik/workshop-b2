@@ -7,7 +7,6 @@ include_once("function.php");
 include_once("constant.php");
 echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> <a href ="connexion.php">Connexion</a>';
 ?>
-<h1>Mon super forum</h1>
 <?php
 $totaldesmessages = 0;
 $categorie = NULL;

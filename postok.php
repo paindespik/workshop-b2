@@ -3,7 +3,6 @@ session_start();
 $titre="Poster";
 include_once("getbdd.php");
 include_once("début.php");
-include_once("menu.php");
 
 $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'';
 

@@ -116,17 +116,7 @@
       <div class="w-100">
         <h2 class="mb-5">Projets</h2>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Projets pro</title>
-</head>
 
-<body>
-
-<?php
-
-?>
 
 <p>Mes projets</p>
 <?php

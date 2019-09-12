@@ -66,9 +66,8 @@ window.document.formulaire.message.value += '' + img + '';
 session_start();
 $titre="Poster";
 $balises = true;
-include_once("identifiants.php");
+include_once("getbdd.php");
 include_once("début.php");
-include_once("menu.php");
 ?>
 <?php
 

@@ -1,10 +1,8 @@
 <?php
 session_start();
 $titre="Voir un sujet";
-include_once("identifiants.php");
+include_once("getbdd.php");
 include_once("début.php");
-include_once("menu.php");
-include_once("menu2.php");
  
 
 $topic = (int) $_GET['t'];

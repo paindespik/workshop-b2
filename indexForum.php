@@ -2,6 +2,7 @@
 $titre="Index du forum";
 //include_once("identifiants.php");
 include_once("début.php");
+include_once("getbdd.php");
 include_once("function.php");
 include_once("constant.php");
 echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> <a href ="connexion.php">Connexion</a>';
@@ -10,7 +11,6 @@ echo '<p><i>Vous êtes ici</i> : <a href="index.php">Index du forum</a> --> <a h
 <?php
 $totaldesmessages = 0;
 $categorie = NULL;
-$bdd = getDataBase();
 if($bdd) {
     $query=$bdd->prepare('SELECT cat_id, cat_nom, 
     forum_forum.forum_id, forum_name, forum_desc, forum_post, forum_topic, auth_view, forum_topic.topic_id,  forum_topic.topic_post, post_id, post_time, post_createur, membre_pseudo, 

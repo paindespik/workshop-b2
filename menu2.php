@@ -4,7 +4,6 @@ echo ' <div>';
 if ($id==0) {
     echo "déco </div> ";
 }else{
-$bdd =getDatabase();
 $query=$bdd->prepare('SELECT * From forum_membres WHERE membre_id = :id');
 $query->bindvalue(':id',$id, PDO::PARAM_INT);
 $query->execute();

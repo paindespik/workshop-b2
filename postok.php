@@ -1,7 +1,7 @@
 <?php
 session_start();
 $titre="Poster";
-include_once("identifiants.php");
+include_once("getbdd.php");
 include_once("début.php");
 include_once("menu.php");
 

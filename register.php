@@ -1,7 +1,7 @@
 <?php
 session_start();
 $titre="Enregistrement";
-include_once("identifiants.php");
+include_once("getbdd.php");
 include_once("début.php");
 include_once("menu.php");
 echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index du forum</a> --> Enregistrement';

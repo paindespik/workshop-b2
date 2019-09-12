@@ -14,7 +14,7 @@
     $id=(isset($_SESSION['id']))?(int) $_SESSION['id']:0;
     $pseudo=(isset($_SESSION['pseudo']))?$_SESSION['pseudo']:'';
     
-    
+    include_once("getbdd.php");
     include_once("function.php");
     include_once("constant.php");
     

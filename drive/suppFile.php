@@ -36,8 +36,8 @@ session_start();
     	$stmt = $bdd->prepare ("DELETE FROM depot WHERE id_depot=:pId");
     	$stmt->bindParam(':pId', $id);
     	$stmt->execute();
-    	echo ("well played");
-    	// var_dump($id);
+    	
+    	
 	
 //suppression fichier server
 
@@ -52,12 +52,13 @@ session_start();
 		var_dump($serverDirectory);
 
 	if (file_exists($serverDirectory)){
+	
 		unlink($serverDirectory);
 	}
 
 
 }
-
+header("Location: ../index.php");
 ?>
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd%22%3E
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd%22%3E
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 
 <head>
@@ -20,7 +20,7 @@
         }
     </style>
         </head>
-<body>
+<body> -->
 <?php
 session_start();
 $titre="Enregistrement";
@@ -39,7 +39,7 @@ if($bdd){
         </fieldset>
         <fieldset><legend>Contacts</legend>
         <label for="mail">* Votre adresse Mail :</label><input type="text" name="mail" id="mail" /><br />
-
+        <p>cocher le bouton pour accepter la RGPD <input type="radio" id="rgpd" name="rgpd" value="rgpd"<p>
         <p>Les champs précédés d un * sont obligatoires</p>
         <p><input type="submit" value="S\'inscrire" /></p></form>
         </div>

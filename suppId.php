@@ -8,7 +8,7 @@ session_start();
 
     	
 
-     	//session_destroy();
+     	session_destroy();
      	$id=htmlspecialchars($_GET['id']);
      	$id=intval($id);
      	$stmt = $bdd->prepare ("DELETE FROM users WHERE id_user=:pId");
@@ -17,14 +17,6 @@ session_start();
 
 
 
-
-
-
-
-
-
-
-
-header("Location: ../index.php");
+header("Location: index.php");
 
 ?>

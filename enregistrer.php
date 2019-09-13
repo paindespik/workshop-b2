@@ -1,3 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd%22%3E
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+
+<head>
+    <style>
+        form{
+             max-width: 450px;
+  background: #FAFAFA;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+        }
+        body{
+            background-color: #F76A19;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+        </head>
+<body>
 <?php
 session_start();
 $titre="Enregistrement";

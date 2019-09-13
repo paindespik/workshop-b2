@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $titre="Enregistrement";
@@ -27,8 +28,9 @@ if($bdd){
         <label for="avatar">Choisissez votre avatar :</label><input type="file" name="avatar" id="avatar" />(Taille max : 10Ko<br />
         <label for="signature">Signature :</label><textarea cols="40" rows="4" name="signature" id="signature">La signature est limitée à 200 caractères</textarea>
         </fieldset>
+        <p>cocher le bouton pour accepter la RGPD <input type="radio" id="rgpd" name="rgpd" value="rgpd"<p>
         <p>Les champs précédés d un * sont obligatoires</p>
-        <p><input type="submit" value="S\'inscrire" /></p></form>
+        <p><input type="submit" value="S\'inscrire" /></p></form>   
         </div>
         </body>
         </html>';

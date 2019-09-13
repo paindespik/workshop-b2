@@ -39,7 +39,7 @@ if($bdd){
         </fieldset>
         <fieldset><legend>Contacts</legend>
         <label for="mail">* Votre adresse Mail :</label><input type="text" name="mail" id="mail" /><br />
-        <p>cocher le bouton pour accepter la RGPD <input type="radio" id="rgpd" name="rgpd" value="rgpd"<p>
+        <p>cocher le bouton pour accepter la RGPD <input type="radio"required id="rgpd" name="rgpd" value="rgpd"<p>
         <p>Les champs précédés d un * sont obligatoires</p>
         <p><input type="submit" value="S\'inscrire" /></p></form>
         </div>
